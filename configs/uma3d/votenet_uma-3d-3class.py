@@ -45,9 +45,15 @@ train_pipeline = [
         translation_std=[0, 0, 0]
     ),
     dict(
+<<<<<<< HEAD
         type='RandomFlip3D',
         flip_ratio_bev_vertical=0.3
 
+=======
+        type='RandomJitterPoints',
+        jitter_std=[0.01, 0.01, 0.01],
+        clip_range=[-0.05, 0.05]
+>>>>>>> 9b2c8cda9862353f9fce7edb9dc4fbb5bcd14d28
     ),
     dict(type='DefaultFormatBundle3D', class_names=class_names),
     dict(
