@@ -210,6 +210,7 @@ def main():
             if hasattr(datasets[0], 'PALETTE') else None)
     # add an attribute for visualization convenience
     model.CLASSES = datasets[0].CLASSES
+    print(model.CLASSES)
     train_model(
         model,
         datasets,
