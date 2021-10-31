@@ -44,6 +44,11 @@ train_pipeline = [
         scale_ratio_range=[0.95, 1.05],
         translation_std=[0, 0, 0]
     ),
+    dict(
+        type='RandomJitterPoints',
+        jitter_std=[0.01, 0.01, 0.01],
+        clip_range=[-0.05, 0.05]
+    ),
     dict(type='DefaultFormatBundle3D', class_names=class_names),
     dict(
         type='Collect3D',
