@@ -44,16 +44,16 @@ train_pipeline = [
         scale_ratio_range=[0.95, 1.05],
         translation_std=[0, 0, 0]
     ),
-    dict(
-        type='RandomJitterPoints',
-        jitter_std=[0.01, 0.01, 0.01],
-        clip_range=[-0.05, 0.05]
-    ),
-    dict(
-        type='RandomFlip3D',
-        flip_ratio_bev_vertical=0.3
-
-    ),
+#    dict(
+#       type='RandomJitterPoints',
+#        jitter_std=[0.01, 0.01, 0.01],
+#        clip_range=[-0.05, 0.05]
+#    ),
+#    dict(
+#        type='RandomFlip3D',
+#        flip_ratio_bev_vertical=0.3
+#
+#    ),
     dict(type='DefaultFormatBundle3D', class_names=class_names),
     dict(
         type='Collect3D',
@@ -74,16 +74,16 @@ test_pipeline = [
         pts_scale_ratio=1,
         flip=False,
         transforms=[
-            dict(
-                type='GlobalRotScaleTrans',
-                rot_range=[0, 0],
-                scale_ratio_range=[1., 1.],
-                translation_std=[0, 0, 0]),
-            dict(
-                type='RandomFlip3D',
-                sync_2d=False,
-                flip_ratio_bev_horizontal=0.5,
-            ),
+            #dict(
+            #    type='GlobalRotScaleTrans',
+            #    rot_range=[0, 0],
+            #    scale_ratio_range=[1., 1.],
+            #    translation_std=[0, 0, 0]),
+            #dict(
+            #    type='RandomFlip3D',
+            #    sync_2d=False,
+            #    flip_ratio_bev_horizontal=0.5,
+            #),
             dict(type='IndoorPointSample', num_points=20000),
             dict(
                 type='DefaultFormatBundle3D',
