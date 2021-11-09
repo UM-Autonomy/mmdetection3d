@@ -38,22 +38,23 @@ train_pipeline = [
         with_mask_3d=False,  # no masks in our data
         with_seg_3d=False),  # no segmentation in our data
     # TODO: add additional preprocessing steps if desired
-#    dict(
-#        type='GlobalRotScaleTrans',
-#        rot_range=[-0.2, 0.2],
-#        scale_ratio_range=[0.95, 1.05],
-#        translation_std=[0, 0, 0]
-#    ),
+   dict(
+       type='GlobalRotScaleTrans',
+       rot_range=[-0.2, 0.2],
+       scale_ratio_range=[0.95, 1.05],
+       translation_std=[0, 0, 0]
+   ),
+#    # Do not use jitter! decreases performance
 #    dict(
 #       type='RandomJitterPoints',
 #       jitter_std=[0.01, 0.01, 0.01],
 #        clip_range=[-0.05, 0.05]
 #    ),
-#    dict(
-#        type='RandomFlip3D',
-#        flip_ratio_bev_vertical=0.3
-#
-#    ),
+   dict(
+       type='RandomFlip3D',
+       flip_ratio_bev_vertical=0.3
+
+   ),
     dict(type='DefaultFormatBundle3D', class_names=class_names),
     dict(
         type='Collect3D',
