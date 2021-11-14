@@ -62,7 +62,7 @@ train_pipeline = [
        type='ObjectSample',
        db_sampler=dict(
            info_path=data_root + 'uma3d_infos_train.pkl',
-           data_path=data_root,
+           data_root=data_root,
            rate=1.0,
            prepare=dict(filter_by_difficulty=[-1], filter_by_min_points=dict()),
            sample_groups=dict(),
