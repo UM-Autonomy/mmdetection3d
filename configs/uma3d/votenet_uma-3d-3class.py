@@ -23,7 +23,7 @@ model = dict(
             # mean_sizes from data/uma3d/get_mean_class_sizes.py
             mean_sizes=[[1.44913911, 1.44210823, 1.51068091],
                         [1.2720509,  1.29382019, 1.45258459],
-                        [2.45731725, 2.80586288, 2.02049193]]))),
+                        [2.45731725, 2.80586288, 2.02049193]]),
         dir_class_loss=dict(
             type='CrossEntropyLoss', class_weight=[1, 1.450, 3.684], reduction='sum', loss_weight=1.0),
         dir_res_loss=dict(
@@ -33,7 +33,7 @@ model = dict(
         size_res_loss=dict(
             type='SmoothL1Loss', class_weight=[1, 1.450, 3.684], reduction='sum', loss_weight=10.0 / 3.0),
         semantic_loss=dict(
-            type='CrossEntropyLoss', class_weight=[1, 1.450, 3.684], reduction='sum', loss_weight=1.0)),
+            type='CrossEntropyLoss', class_weight=[1, 1.450, 3.684], reduction='sum', loss_weight=1.0)))
 
 train_pipeline = [
     dict(
