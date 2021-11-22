@@ -39,12 +39,12 @@ train_pipeline = [
         with_seg_3d=False),  # no segmentation in our data
     # TODO: add additional preprocessing steps if desired
 
-#    dict(
-#        type='GlobalRotScaleTrans',
-#        rot_range=[-0.2, 0.2],
-#        scale_ratio_range=[0.95, 1.05],
-#        translation_std=[0, 0, 0]
-#    ),
+    dict(
+        type='GlobalRotScaleTrans',
+        rot_range=[-0.2, 0.2],
+        scale_ratio_range=[0.95, 1.05],
+        translation_std=[0, 0, 0]
+    ),
 #    # Do not use jitter! decreases performance
 #    dict(
 #       type='RandomJitterPoints',
@@ -52,24 +52,24 @@ train_pipeline = [
 #        clip_range=[-0.05, 0.05]
 #    ),
 
-#    dict(
-#        type='RandomFlip3D',
-#        flip_ratio_bev_vertical=0.3
+    dict(
+        type='RandomFlip3D',
+        flip_ratio_bev_vertical=0.3
 
-#    ),
+    ),
    # Test augmentation: sample objects (similar to multi-modality)
-   dict(
-       type='ObjectSample',
-       db_sampler=dict(
-           info_path=data_root + 'uma3d_infos_train.pkl',
-           data_root=data_root,
-           rate=1.0,
-           prepare=dict(filter_by_difficulty=[-1], filter_by_min_points=dict()),
-           sample_groups=dict(),
-           classes=class_names
-       ),
-       sample_2d=False
-   ),
+   #dict(
+   #    type='ObjectSample',
+   #    db_sampler=dict(
+   #        info_path=data_root + 'uma3d_infos_train.pkl',
+   #        data_root=data_root,
+   #        rate=1.0,
+   #        prepare=dict(filter_by_difficulty=[-1], filter_by_min_points=dict()),
+   #        sample_groups=dict(),
+   #        classes=class_names
+   #    ),
+   #    sample_2d=False
+   #),
 
     dict(type='DefaultFormatBundle3D', class_names=class_names),
     dict(
